@@ -12,12 +12,12 @@ jobs:
       packages: write
     
     env:
-      RULESET_FILE: custom_falco_rules.yaml
+      RULESET_FILE: falco_rules.yaml
       # Used to setup Auth and OCI artifact location
       OCI_REGISTRY: ghcr.io
       # Assuming we are in the main branch, our OCI artifact will
       # look something like ghcr.io/user/repo/custom-rules:main
-      OCI_ARTIFACT_NAME: custom-rules
+      OCI_ARTIFACT_NAME: falco_rules
       OCI_ARTIFACT_VERSION: ${{ github.ref_name }}
 
     steps:
