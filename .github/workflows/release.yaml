@@ -13,8 +13,8 @@ jobs:
       packages: write
     
     env:
-      RULESET_FILE: falco_rules.yaml
-      RULESET_FILE1: custom_falco_rules.yaml
+#      RULESET_FILE: falco_rules.yaml
+ #     RULESET_FILE1: custom_falco_rules.yaml
       # Used to setup Auth and OCI artifact location
       OCI_REGISTRY: ghcr.io
       # Assuming we are in the main branch, our OCI artifact will
@@ -53,7 +53,7 @@ jobs:
           --type rulesfile \
           --version ${OCI_ARTIFACT_VERSION} \
           ${OCI_REGISTRY}/${GITHUB_REPOSITORY}/${OCI_ARTIFACT_NAME}:${OCI_ARTIFACT_VERSION} \
-          ${RULESET_FILE}  ${RULESET_FILE1}
+          falco.tar.gz
         
         env:
           FALCOCTL_REGISTRY_AUTH_BASIC: ${{ env.OCI_REGISTRY }},${{ github.repository_owner }},${{ secrets.GITHUB_TOKEN }}
